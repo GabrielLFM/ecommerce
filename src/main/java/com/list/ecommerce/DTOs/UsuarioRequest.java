@@ -28,5 +28,4 @@ public class UsuarioRequest {
     private Role roles;
     private String telefone;
     private List<Pedido> pedidos = new ArrayList<>();
-    
 }

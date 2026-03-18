@@ -13,7 +13,7 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idPedido;
-    private Instant Momento;
+    private Instant MomentoPedido;
     private StatusDoPedido Status;
 
     @ManyToOne

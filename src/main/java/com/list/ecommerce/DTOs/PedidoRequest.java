@@ -14,6 +14,7 @@ import java.time.Instant;
 @AllArgsConstructor
 public class PedidoRequest {
 
+    private int cliente_id;
     private long idPedido;
     private Instant Momento;
     private StatusDoPedido status;

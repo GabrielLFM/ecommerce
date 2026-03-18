@@ -13,6 +13,5 @@ import java.time.Instant;
 @NoArgsConstructor
 public class PagamentoRequest {
 
-    private long id;
     private Instant Momento;
 }

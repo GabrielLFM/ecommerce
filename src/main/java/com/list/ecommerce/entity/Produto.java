@@ -13,9 +13,9 @@ public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long idPedido;
-    private String NomePedido;
-    private String DescricaoPedido;
+    private long idProduto;
+    private String NomeProduto;
+    private String DescricaoProduto;
     private double preco;
     private String imgUrl;
 

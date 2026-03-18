@@ -11,8 +11,11 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ProdutoRequest {
 
-    private long idProduto;
-    private String NomePedido;
+
+    private String NomeProduto;
+    private String DescricaoProduto;
+    private double preco;
+    private String imgUrl;
 
 
 

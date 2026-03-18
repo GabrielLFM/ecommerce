@@ -14,7 +14,7 @@ public class Pagamento {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long idPagamento;
-    private Instant Momento;
+    private Instant MomentoPagamento;
 
     @OneToOne
     @MapsId
