@@ -26,7 +26,17 @@ public class PedidoService {
     }
 
 
+    //Post
+    public PedidoResponse criarPedido(PedidoRequest request, Integer user_id){
+        Usuario usuario = usuarioRepository.findById(user_id).orElseThrow(()-> new RuntimeException("Usuario não encontrado"));
+        Pedido pedido = new Pedido();
 
+        pedido.setStatus(request.getStatus());
+        pedido.setMomentoPedido(request.getMomentoPedido());
+        pedido.getCliente(usuario);
+
+        return new PedidoResponse(pedido.getIdPedido(), pedido.getMomentoPedido(),pedido.getStatus());
+    }
 
 
 
