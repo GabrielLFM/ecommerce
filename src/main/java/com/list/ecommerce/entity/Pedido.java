@@ -17,10 +17,15 @@ public class Pedido {
     private StatusDoPedido Status;
 
     @ManyToOne
-    @JoinColumn(name = "cliente_id")
+    @JoinColumn(name = "cliente")
     private Usuario cliente;
 
     @OneToOne(mappedBy = "pedido",
     cascade = CascadeType.ALL)
     private Pagamento pagamento;
+
+
+    public void getCliente(Usuario usuario) {
+    }
+
 }

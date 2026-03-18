@@ -1,6 +1,7 @@
 package com.list.ecommerce.DTOs;
 
 import com.list.ecommerce.entity.StatusDoPedido;
+import com.list.ecommerce.entity.Usuario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,9 +15,8 @@ import java.time.Instant;
 @AllArgsConstructor
 public class PedidoRequest {
 
-    private int cliente_id;
-    private long idPedido;
-    private Instant Momento;
+    private Usuario cliente;
+    private Instant MomentoPedido;
     private StatusDoPedido status;
 
 }
