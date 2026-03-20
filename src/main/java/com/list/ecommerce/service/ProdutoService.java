@@ -18,8 +18,8 @@ public class ProdutoService {
     }
 
     //Post
-    public ProdutoResponse criarProduto(Integer id,ProdutoRequest produtoRequest){
-        Optional<Produto>produtoExistente = produtoRepository.findById(id);
+    public ProdutoResponse criarProduto(ProdutoRequest produtoRequest){
+        Optional<Produto>produtoExistente = produtoRepository.findByNomeProduto(produtoRequest.getNomeProduto());
 
         if(produtoExistente.isPresent()){
             throw new RuntimeException("Produto existente");

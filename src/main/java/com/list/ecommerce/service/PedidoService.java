@@ -1,6 +1,8 @@
 package com.list.ecommerce.service;
+import com.list.ecommerce.DTOs.PedidoRequest;
 import com.list.ecommerce.DTOs.PedidoResponse;
 import com.list.ecommerce.entity.Pedido;
+import com.list.ecommerce.entity.Usuario;
 import com.list.ecommerce.repository.PedidoRepository;
 import com.list.ecommerce.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
