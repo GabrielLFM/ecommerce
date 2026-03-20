@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/Pagamento")
 public class PagamentoController {
 
+
     private final PagamentoService pagamentoService;
 
 
@@ -19,7 +20,7 @@ public class PagamentoController {
     }
 
     //Post
-    @PostMapping
+    @PostMapping("/Pagamento")
     public PagamentoResponse criarPagamento(@PathVariable Integer id, @RequestBody PagamentoRequest pagamentoRequest) {
         return pagamentoService.criarPagamento(id,pagamentoRequest);
 

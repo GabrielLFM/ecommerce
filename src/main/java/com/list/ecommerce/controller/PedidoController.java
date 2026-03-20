@@ -1,10 +1,14 @@
 package com.list.ecommerce.controller;
 
+import com.list.ecommerce.DTOs.PedidoRequest;
 import com.list.ecommerce.DTOs.PedidoResponse;
 import com.list.ecommerce.service.PedidoService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+import java.util.List;
+
+@Controller("/Pedido")
 public class PedidoController {
 
     private final PedidoService pedidoService;
@@ -13,5 +17,18 @@ public class PedidoController {
         this.pedidoService = pedidoService;
     }
 
+    @PostMapping("/{id}")
+    public PedidoResponse criarPedido(@RequestBody PedidoRequest pedidoRequest, @PathVariable Integer id) {
+        return pedidoService.criarPedido(pedidoRequest,id);
+    }
+    @GetMapping("/pedidos")
+    public PedidoResponse buscarPedidos(Integer id) {
+        return pedidoService.buscarPedidos(id);
+    }
+    @DeleteMapping("/{id}")
+    public void deletarPedido(@PathVariable Integer id) {
+
+        pedidoService.deletarPedido(id);
+    }
 
 }
