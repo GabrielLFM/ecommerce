@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import com.list.ecommerce.entity.Role;"fix: corrigir import do enum Role em Usuario"
+import com.list.ecommerce.entity.Role;
 import java.util.ArrayList;
 import java.util.List;
 
