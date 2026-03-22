@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.management.relation.Role;
+import com.list.ecommerce.entity.Role;
 import java.util.ArrayList;
 import java.util.List;
 
