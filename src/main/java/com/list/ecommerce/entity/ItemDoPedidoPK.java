@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
+
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,4 +22,20 @@ public class ItemDoPedidoPK {
     @ManyToOne
     @JoinColumn(name = "id_Produto")
     private Produto produto;
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
 }
