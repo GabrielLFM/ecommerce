@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller("/Pedido")
+@RestController("/Pedido")
 public class PedidoController {
 
     private final PedidoService pedidoService;
@@ -25,6 +25,8 @@ public class PedidoController {
     public PedidoResponse buscarPedidos(Integer id) {
         return pedidoService.buscarPedidos(id);
     }
+
+
     @DeleteMapping("/{id}")
     public void deletarPedido(@PathVariable Integer id) {
 

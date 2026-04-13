@@ -7,7 +7,7 @@ import com.list.ecommerce.service.PagamentoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("/Pagamento")
 public class PagamentoController {
 
@@ -19,12 +19,6 @@ public class PagamentoController {
         this.pagamentoService = pagamentoService;
     }
 
-    //Post
-    @PostMapping("/Pagamento")
-    public PagamentoResponse criarPagamento(@PathVariable Integer id, @RequestBody PagamentoRequest pagamentoRequest) {
-        return pagamentoService.criarPagamento(id,pagamentoRequest);
-
-    }
     @GetMapping("/{id}")
     public PagamentoResponse buscarPagamento(@PathVariable Integer id) {
         return pagamentoService.buscarPagamento(id);
