@@ -14,8 +14,7 @@ import java.util.UUID;
 public class ItemDoPedidoRequest {
 
 
-    private UUID idProduto;
-    private UUID idCategoria;
-    private Double preco;
-    private Integer quantidade;
+    private Integer idProduto;
+    private Integer idCategoria;
+    private int quantidade;
 }
