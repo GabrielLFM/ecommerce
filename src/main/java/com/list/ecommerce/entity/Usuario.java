@@ -1,14 +1,12 @@
 package com.list.ecommerce.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import com.list.ecommerce.entity.Role;
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
 @Getter
 @Setter
 @NoArgsConstructor
