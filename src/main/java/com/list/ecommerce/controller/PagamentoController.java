@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/Pagamento")
+@RequestMapping("/pagamento")
 public class PagamentoController {
 
 
@@ -19,7 +19,7 @@ public class PagamentoController {
         this.pagamentoService = pagamentoService;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/buscar/{id}")
     public PagamentoResponse buscarPagamento(@PathVariable Integer id) {
         return pagamentoService.buscarPagamento(id);
     }

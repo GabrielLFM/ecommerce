@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/Pedido")
+@RestController
+@RequestMapping("/pedido")
 public class PedidoController {
 
     private final PedidoService pedidoService;
@@ -17,17 +18,17 @@ public class PedidoController {
         this.pedidoService = pedidoService;
     }
 
-    @PostMapping("/{id}")
+    @PostMapping("/criar")
     public PedidoResponse criarPedido(@RequestBody PedidoRequest pedidoRequest, @PathVariable Integer id) {
         return pedidoService.criarPedido(pedidoRequest,id);
     }
-    @GetMapping("/pedidos")
+    @GetMapping("/buscar")
     public PedidoResponse buscarPedidos(Integer id) {
         return pedidoService.buscarPedidos(id);
     }
 
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deletar/{id}")
     public void deletarPedido(@PathVariable Integer id) {
 
         pedidoService.deletarPedido(id);
