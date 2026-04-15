@@ -2,8 +2,10 @@ package com.list.ecommerce.service;
 
 import com.list.ecommerce.DTOs.UsuarioRequest;
 import com.list.ecommerce.DTOs.UsuarioResponse;
+import com.list.ecommerce.config.EcommerceConfig;
 import com.list.ecommerce.entity.Usuario;
 import com.list.ecommerce.repository.UsuarioRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,9 +16,13 @@ public class UsuarioService {
 
 
     private final UsuarioRepository usuarioRepository;
+    private final PasswordEncoder  passwordEncoder;
+    private final EcommerceConfig ecommerceConfig;
 
-    public UsuarioService(UsuarioRepository usuarioRepository) {
+    public UsuarioService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder, EcommerceConfig eccomerceConfig, PasswordEncoder passwordEncoder1, EcommerceConfig ecommerceConfig) {
         this.usuarioRepository = usuarioRepository;
+        this.passwordEncoder = passwordEncoder1;
+        this.ecommerceConfig = ecommerceConfig;
     }
 
     //Post
@@ -29,7 +35,7 @@ public class UsuarioService {
         usuario.setEmail(usuarioRequest.getEmail());
         usuario.setNome(usuarioRequest.getNome());
         usuario.setTelefone(usuarioRequest.getTelefone());
-        usuario.setSenha(usuarioRequest.getSenha());
+        usuario.setSenha(passwordEncoder.encode(usuarioRequest.getSenha()));
         usuario.setRoles(usuarioRequest.getRoles());
         usuarioRepository.save(usuario);
 
