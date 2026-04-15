@@ -17,9 +17,22 @@ public class EcommerceConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/users").permitAll()
-                        .requestMatchers("/admin").hasRole("ADMIN")
+                        .requestMatchers("/usuario/criar").permitAll()
+                        .requestMatchers("/usuario/buscar").permitAll()
+                        .requestMatchers("/usuario/buscar/{id}").permitAll()
+                        .requestMatchers("/usuario/atualizar/").permitAll()
+                        .requestMatchers("/usuario/deletar/").permitAll()
+                        .requestMatchers("/produto/buscar").permitAll()
+                        .requestMatchers("/produto/buscar/{id}").permitAll()
+                        .requestMatchers("/pedido/buscar").permitAll()
+                        .requestMatchers("/pedido/criar").permitAll()
+                        .requestMatchers("/pagamento/buscar/").permitAll()
+
+                        .requestMatchers("/produto/atualizar/").hasRole("ADMIN")
+                        .requestMatchers("/produto/deletar/").hasRole("ADMIN")
+                        .requestMatchers("/pedido/deletar/").hasRole("ADMIN")
                         .anyRequest().authenticated()).httpBasic(Customizer.withDefaults());
+
         return http.build();
     }
 
