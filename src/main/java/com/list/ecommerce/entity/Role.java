@@ -1,6 +1,6 @@
 package com.list.ecommerce.entity;
 
 public enum Role {
-    ADMIN,
-    USUARIO
+    ROLE_ADMIN,
+    ROLE_USUARIO
 }
