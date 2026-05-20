@@ -1,7 +1,7 @@
 package com.list.ecommerce.service;
 
-import com.list.ecommerce.DTOs.ItemDoPedidoRequest;
-import com.list.ecommerce.DTOs.ItemDoPedidoResponse;
+import com.list.ecommerce.DTOs.request.ItemDoPedidoRequest;
+import com.list.ecommerce.DTOs.response.ItemDoPedidoResponse;
 import com.list.ecommerce.entity.ItemDoPedido;
 import com.list.ecommerce.entity.ItemDoPedidoPK;
 import com.list.ecommerce.entity.Pedido;

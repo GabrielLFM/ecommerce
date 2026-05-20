@@ -1,4 +1,4 @@
-package com.list.ecommerce.DTOs;
+package com.list.ecommerce.DTOs.response;
 
 import com.list.ecommerce.entity.ItemDoPedido;
 import com.list.ecommerce.entity.ItemDoPedidoPK;

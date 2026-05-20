@@ -1,11 +1,9 @@
-package com.list.ecommerce.DTOs;
+package com.list.ecommerce.DTOs.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.UUID;
 
 @Getter
 @Setter
