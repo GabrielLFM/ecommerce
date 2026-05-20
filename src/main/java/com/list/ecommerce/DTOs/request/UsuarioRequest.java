@@ -1,4 +1,4 @@
-package com.list.ecommerce.DTOs;
+package com.list.ecommerce.DTOs.request;
 
 import com.list.ecommerce.entity.Pedido;
 import jakarta.validation.constraints.Email;

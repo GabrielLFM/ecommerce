@@ -1,7 +1,7 @@
 package com.list.ecommerce.service;
 
-import com.list.ecommerce.DTOs.UsuarioRequest;
-import com.list.ecommerce.DTOs.UsuarioResponse;
+import com.list.ecommerce.DTOs.request.UsuarioRequest;
+import com.list.ecommerce.DTOs.response.UsuarioResponse;
 import com.list.ecommerce.config.EcommerceConfig;
 import com.list.ecommerce.entity.Usuario;
 import com.list.ecommerce.repository.UsuarioRepository;
@@ -16,7 +16,7 @@ public class UsuarioService {
 
 
     private final UsuarioRepository usuarioRepository;
-    private final PasswordEncoder  passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
     private final EcommerceConfig ecommerceConfig;
 
     public UsuarioService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder, EcommerceConfig eccomerceConfig, PasswordEncoder passwordEncoder1, EcommerceConfig ecommerceConfig) {
@@ -26,7 +26,7 @@ public class UsuarioService {
     }
 
     //Post
-    public UsuarioResponse criarUsuario(UsuarioRequest usuarioRequest) {
+    public UsuarioResponse criarUsuario(UsuarioRequest usuarioRequest, String path) {
         Optional<Usuario> usuarioExistente = usuarioRepository.findByEmail(usuarioRequest.getEmail());
         if (usuarioExistente.isPresent()) {
             throw new RuntimeException("Email ja registrado");
@@ -37,6 +37,7 @@ public class UsuarioService {
         usuario.setTelefone(usuarioRequest.getTelefone());
         usuario.setSenha(passwordEncoder.encode(usuarioRequest.getSenha()));
         usuario.setRoles(usuarioRequest.getRoles());
+        usuario.setPhoto(path);
         usuarioRepository.save(usuario);
 
         UsuarioResponse usuarioResponse = new UsuarioResponse(
@@ -44,7 +45,9 @@ public class UsuarioService {
                 usuario.getTelefone(),
                 usuario.getNome(),
                 usuario.getEmail(),
-                usuario.getPedidos()
+                usuario.getPedidos(),
+                usuario.getPhoto()
+
         );
         return usuarioResponse;
 
@@ -58,43 +61,48 @@ public class UsuarioService {
                 usuario.getNome(),
                 usuario.getEmail(),
                 usuario.getTelefone(),
-                usuario.getPedidos()
+                usuario.getPedidos(),
+                usuario.getPhoto()
         )).toList();
     }
 
-    public UsuarioResponse listarUsuarios(Integer id) {
+    public UsuarioResponse listarUsuarios(long id) {
         Usuario usuario = usuarioRepository.findById(id).orElseThrow();
-        
+
         return new UsuarioResponse(
                 usuario.getId(),
                 usuario.getNome(),
                 usuario.getEmail(),
                 usuario.getTelefone(),
-                usuario.getPedidos()
+                usuario.getPedidos(),
+                usuario.getPhoto()
         );
     }
 
-    public void deletarUsuario(Integer id) {
+    public void deletarUsuario(long id) {
 
-     Usuario usuario =  usuarioRepository.findById(id).orElseThrow(()-> new RuntimeException("Usuario não encontrado"));
-     usuarioRepository.delete(usuario);
+        Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
+        usuarioRepository.delete(usuario);
     }
 
-    public UsuarioResponse atualizarUsuario(Integer id,UsuarioRequest usuarioRequest) {
+    public UsuarioResponse atualizarUsuario(long id, UsuarioRequest usuarioRequest, String path) {
 
-        Usuario usuario = usuarioRepository.findById(id).orElseThrow(()-> new RuntimeException("Usuario não encontrado"));
+        Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
         usuario.setNome(usuarioRequest.getNome());
         usuario.setEmail(usuarioRequest.getEmail());
         usuario.setTelefone(usuarioRequest.getTelefone());
         usuario.setSenha(usuarioRequest.getSenha());
+        usuario.setPhoto(path);
         UsuarioResponse usuarioResponse = new UsuarioResponse(
                 usuario.getId(),
                 usuario.getNome(),
                 usuario.getTelefone(),
                 usuario.getEmail(),
-                usuario.getPedidos()
+                usuario.getPedidos(),
+                usuario.getPhoto()
         );
-          return usuarioResponse;
+        return usuarioResponse;
     }
-
 }
+
+

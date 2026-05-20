@@ -23,6 +23,7 @@ public class Usuario {
     private String senha;
     @Enumerated(EnumType.STRING)
     private Role roles;
+    private String photo;
 
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos = new

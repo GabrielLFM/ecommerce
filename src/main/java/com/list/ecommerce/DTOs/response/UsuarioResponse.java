@@ -1,4 +1,4 @@
-package com.list.ecommerce.DTOs;
+package com.list.ecommerce.DTOs.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,4 +18,5 @@ public class UsuarioResponse {
     private String email;
     private String telefone;
     private List Pedidos;
+    private String photo;
 }
