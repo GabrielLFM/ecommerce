@@ -1,10 +1,8 @@
 package com.list.ecommerce.controller;
 
-import com.list.ecommerce.DTOs.PedidoResponse;
-import com.list.ecommerce.DTOs.ProdutoRequest;
-import com.list.ecommerce.DTOs.ProdutoResponse;
+import com.list.ecommerce.DTOs.request.ProdutoRequest;
+import com.list.ecommerce.DTOs.response.ProdutoResponse;
 import com.list.ecommerce.service.ProdutoService;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
