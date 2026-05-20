@@ -1,6 +1,6 @@
 package com.list.ecommerce.service;
-import com.list.ecommerce.DTOs.PedidoRequest;
-import com.list.ecommerce.DTOs.PedidoResponse;
+import com.list.ecommerce.DTOs.request.PedidoRequest;
+import com.list.ecommerce.DTOs.response.PedidoResponse;
 import com.list.ecommerce.entity.Pedido;
 import com.list.ecommerce.entity.Usuario;
 import com.list.ecommerce.repository.PedidoRepository;
@@ -21,7 +21,7 @@ public class PedidoService {
 
 
     //Post
-    public PedidoResponse criarPedido(PedidoRequest request, Integer user_id){
+    public PedidoResponse criarPedido(PedidoRequest request, long user_id){
         Usuario usuario = usuarioRepository.findById(user_id).orElseThrow(()-> new RuntimeException("Usuario não encontrado"));
         Pedido pedido = new Pedido();
 

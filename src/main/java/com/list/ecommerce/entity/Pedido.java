@@ -1,6 +1,7 @@
 package com.list.ecommerce.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@Data
 @Entity
 public class Pedido {
 
@@ -30,4 +32,8 @@ public class Pedido {
 
     @OneToMany(mappedBy = "id.pedido")
     private List<ItemDoPedido> itens;
+
+    public void getCliente(Usuario usuario) {
+
+    }
 }

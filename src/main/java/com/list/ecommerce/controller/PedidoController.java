@@ -1,12 +1,9 @@
 package com.list.ecommerce.controller;
 
-import com.list.ecommerce.DTOs.PedidoRequest;
-import com.list.ecommerce.DTOs.PedidoResponse;
+import com.list.ecommerce.DTOs.request.PedidoRequest;
+import com.list.ecommerce.DTOs.response.PedidoResponse;
 import com.list.ecommerce.service.PedidoService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/pedido")
